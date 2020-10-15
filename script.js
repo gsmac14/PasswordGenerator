@@ -1,6 +1,10 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var value = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcedefhijklmnopqrstuvwxyz!@#$%^&*()_+-=1234567890";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var specialChar = "!@#$%^&*()_-+=;/?.,><";
+var numbers = "1234567890";
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -8,6 +12,10 @@ function writePassword() {
 
   passwordText.value = password;
 
+}
+
+function generatePassword() {
+    
 }
 
 // Add event listener to generate button
