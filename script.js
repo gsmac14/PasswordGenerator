@@ -18,9 +18,12 @@ function writePassword() {
 
 function generatePassword() {
     //prompt for how many characters for password criteria 
+    //while loop was added to help with defining the criteria and will continue to loop until user input is correct
+    // isNaN was used to alert user they did not enter a number
+    //parseInt was used to parse a string and return a interger
     var passwordLength = prompt("Please enter password length you desire. Length must be between 8 and 128 characters.");
-    while (passwordLength < 8 || passwordLength > 128) {
-        alert("Incorrect amount of letters!")
+    while (isNaN(passwordLength) || (parseInt(passwordLength )< 8 || parseInt(passwordLength ) > 128)) {
+        alert("Incorrect amout of letters or did not enter a number!")
         passwordLength = prompt("Please enter password length you desire. Length must be between 8 and 128 characters.");
     }
     //user confirm what characters he or she wants
@@ -28,8 +31,11 @@ function generatePassword() {
     var specCharConfirm = confirm("Do you want special characters?");
     var numbConfirm = confirm("Do you want numbers?");
 
+    //logic with if statements to help concat the assignment codes (lines 2 -6)
+    //created var possibleChar to help with generating possible returns
     var possibleChar = lowerCase.split("");
     console.log(possibleChar);
+    
     if (upCaseConfirm) {
        possibleChar = possibleChar.concat(upperCase.split(""));
         console.log(possibleChar);
@@ -43,7 +49,8 @@ function generatePassword() {
     if (numbConfirm) {
         possibleChar = possibleChar.concat(numbers.split(""));
         console.log(possibleChar);
-    
+    //new var newpassword was created undefined 
+    //for loop created to assign random characters from possibleChar variable 
         }
         var newpassword = "";
         for (var i = 0; i < passwordLength; i++){
@@ -52,33 +59,9 @@ function generatePassword() {
         }
         console.log(newpassword); 
 
+        //returns new password
         return newpassword;
 
-
-
-    //if statement for using uppercase, lowercase, numbers, and special characters
-    // if (passwordLength >=8 && passwordLength <=128 && upCaseConfirm && lowCaseConfirm && specCharConfirm && numbConfirm)  {
-    //     function generate(length = passwordLength){
-    //         var all = upperCase + lowerCase + specialChar + numbers;
-    //             for (var i = 0; i < length; i++){
-    //                 var character = Math.floor(Math.random() * all.length);
-                    
-    //             }
-    //     }
-    // }
-    // else    {
-    //     alert("Please enter a password length between 8 and 128!")
-    // }
-
-
-        
-    
-   
-
-    if (condition) {
-        
     }
-}
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
